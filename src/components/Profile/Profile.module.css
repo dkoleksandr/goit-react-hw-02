@@ -1,0 +1,17 @@
+.profile {
+  padding: 10px;
+  border: 2px solid rgb(57, 57, 64);
+  border-radius: 5%;
+}
+
+.profileList {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  background-color: rgb(186, 181, 181);
+}
+
+.profileStats {
+  display: flex;
+  flex-direction: column;
+}
