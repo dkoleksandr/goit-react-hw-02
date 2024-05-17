@@ -30,13 +30,15 @@ const App = () => {
       case "bad":
         setFeedback({ ...feedback, bad: feedback.bad + 1 });
         break;
-      case "reset":
-        setFeedback({
-          good: 0,
-          neutral: 0,
-          bad: 0,
-        });
     }
+  };
+
+  const resetFeedback = () => {
+    setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
   };
 
   useEffect(() => {
@@ -49,18 +51,13 @@ const App = () => {
   return (
     <>
       <Description />
-      <Options handleClick={() => updateFeedback("good")}>
-        Good: {feedback.good}
+      <Options
+        handleClick={updateFeedback}
+        handleReset={resetFeedback}
+        totalFeedback={totalFeedback}
+      >
+        {feedback}
       </Options>
-      <Options handleClick={() => updateFeedback("neutral")}>
-        Neutral: {feedback.neutral}
-      </Options>
-      <Options handleClick={() => updateFeedback("bad")}>
-        Bad: {feedback.bad}
-      </Options>
-      {totalFeedback > 0 && (
-        <Options handleClick={() => updateFeedback("reset")}>Reset</Options>
-      )}
 
       {totalFeedback > 0 ? (
         <Feedback
